@@ -38,5 +38,13 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\CustomRenderers\" />
     <Folder Include="CustomControls\" />
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\CustomRenderers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

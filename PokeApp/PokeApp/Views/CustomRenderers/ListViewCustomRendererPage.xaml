@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:PokeApp.CustomControls"
+    x:Class="PokeApp.Views.CustomRenderers.ListViewCustomRendererPage"
+    Appearing="ContentPage_Appearing"
+>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Custom Rendered List View" />
+            <custom:CustomListView ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

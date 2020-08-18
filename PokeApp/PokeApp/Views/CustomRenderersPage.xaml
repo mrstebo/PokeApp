@@ -8,6 +8,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Entry" Command="{Binding GoToEntryCustomRenderersPage}" />
+            <Button Text="ListView" Command="{Binding GoToListViewCustomRendererPage}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
