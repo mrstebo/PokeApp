@@ -7,9 +7,7 @@
              x:Class="PokeApp.Views.CustomRenderersPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Custom Renderers Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Entry" Command="{Binding GoToEntryCustomRenderersPage}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

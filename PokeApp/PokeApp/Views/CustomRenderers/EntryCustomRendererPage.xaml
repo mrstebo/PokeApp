@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PokeApp.Views.CustomRenderers.EntryCustomRendererPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="5">
+                <Label Text="No Custom Renderer" />
+                <Entry Placeholder="No Custom Renderer" />
+            </StackLayout>
+            <StackLayout Padding="5">
+                <Label Text="Custom Renderer" />
+                <Entry Placeholder="Custom Renderer" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
