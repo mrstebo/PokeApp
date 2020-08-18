@@ -37,6 +37,6 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Views\CustomRenderers\" />
-    <Folder Include="Controls\" />
+    <Folder Include="CustomControls\" />
   </ItemGroup>
 </Project>
