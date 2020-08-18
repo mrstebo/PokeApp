@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PokeApp\PokeApp.csproj">
-      <Project>{0C165FDB-E6CD-4CE5-85B8-ED1949ED8085}</Project>
+      <Project>{506DD631-38C9-4C03-B1FB-2E5728E24A6D}</Project>
       <Name>PokeApp</Name>
     </ProjectReference>
   </ItemGroup>
