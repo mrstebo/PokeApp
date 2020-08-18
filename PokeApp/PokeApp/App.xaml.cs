@@ -10,6 +10,11 @@ namespace PokeApp
         {
             InitializeComponent();
 
+            Device.SetFlags(new[]
+            {
+                "Shapes_Experimental"
+            });
+
             MainPage = new MainPage();
         }
 
