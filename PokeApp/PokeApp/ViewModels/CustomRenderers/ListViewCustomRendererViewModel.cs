@@ -31,13 +31,13 @@ namespace PokeApp.ViewModels.CustomRenderers
             {
                 Id = 2,
                 Name = "Item 2",
-                ImageUrl = "https://i.imgur.com/DvpvklR.png"
+                ImageUrl = "https://picsum.photos/seed/item2/200"
             });
             Items.Add(new CustomListViewItem
             {
                 Id = 3,
                 Name = "Item 3",
-                ImageUrl = "https://loremflickr.com/200/200"
+                ImageUrl = "https://picsum.photos/seed/item3/200"
             });
         }
     }
