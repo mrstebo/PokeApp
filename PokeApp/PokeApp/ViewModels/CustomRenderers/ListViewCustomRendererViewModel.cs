@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using PokeApiNet;
 using PokeApp.Models;
 using PropertyChanged;
 using Xamarin.Forms;
@@ -10,8 +11,12 @@ namespace PokeApp.ViewModels.CustomRenderers
     [AddINotifyPropertyChangedInterface]
     public class ListViewCustomRendererViewModel
     {
+        private PokeApiClient pokeApiClient;
+
         public ListViewCustomRendererViewModel()
         {
+            pokeApiClient = new PokeApiClient();
+
             LoadData = new Command(ExecuteLoadData);
             Items = new ObservableCollection<CustomListViewItem>();
         }
@@ -19,26 +24,21 @@ namespace PokeApp.ViewModels.CustomRenderers
         public ICommand LoadData { get; }
         public ObservableCollection<CustomListViewItem> Items { get; }
 
-        private void ExecuteLoadData()
+        private async void ExecuteLoadData()
         {
-            Items.Add(new CustomListViewItem
+            var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(30, 0);
+
+            foreach(var result in page.Results)
             {
-                Id = 1,
-                Name = "Item 1",
-                ImageUrl = "https://picsum.photos/seed/item1/200"
-            });
-            Items.Add(new CustomListViewItem
-            {
-                Id = 2,
-                Name = "Item 2",
-                ImageUrl = "https://picsum.photos/seed/item2/200"
-            });
-            Items.Add(new CustomListViewItem
-            {
-                Id = 3,
-                Name = "Item 3",
-                ImageUrl = "https://picsum.photos/seed/item3/200"
-            });
+                var pokemon = await pokeApiClient.GetResourceAsync<Pokemon>(result.Name);
+
+                Items.Add(new CustomListViewItem
+                {
+                    Id = pokemon.Id,
+                    Name = pokemon.Name,
+                    ImageUrl = pokemon.Sprites.FrontDefault
+                });
+            }
         }
     }
 }
