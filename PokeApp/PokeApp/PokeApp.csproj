@@ -30,6 +30,10 @@
     <EmbeddedResource Update="Views\ViewsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Locale.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Locale.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -41,11 +45,16 @@
     <Folder Include="Views\CollectionViews\" />
     <Folder Include="ViewModels\CollectionViews\" />
     <Folder Include="Services\" />
+    <Folder Include="Localisation\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Resources\Locale.Designer.cs">
+      <DependentUpon>Locale.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

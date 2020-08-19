@@ -68,6 +68,7 @@
     <Compile Include="CustomRenderers\TemplateEntryRenderer.cs" />
     <Compile Include="CustomRenderers\CustomListViewRenderer.cs" />
     <Compile Include="ListAdapters\CustomListViewAdapter.cs" />
+    <Compile Include="Localisation\LocalisationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -115,6 +116,7 @@
     <Folder Include="CustomRenderers\" />
     <Folder Include="ListAdapters\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Localisation\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
