@@ -1,41 +1,22 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using PokeApiNet;
-using PokeApp.Models;
-using PropertyChanged;
+﻿using System.Windows.Input;
+using PokeApp.Views.CollectionViews;
 using Xamarin.Forms;
 
 namespace PokeApp.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
     public class CollectionViewExampleViewModel
     {
-        private PokeApiClient pokeApiClient;
-
         public CollectionViewExampleViewModel()
         {
-            pokeApiClient = new PokeApiClient();
-
-            LoadData = new Command(ExecuteLoadData);
-            Items = new ObservableCollection<CollectionListViewItem>();
+            GoToGridCollectionViewPage = new Command(ExecuteGoToGridCollectionViewPage);
         }
 
-        public ICommand LoadData { get; }
-        public ObservableCollection<CollectionListViewItem> Items { get; }
+        public ICommand GoToGridCollectionViewPage { get; }
+        public INavigation Navigation { get; set; }
 
-        private async void ExecuteLoadData()
+        private async void ExecuteGoToGridCollectionViewPage()
         {
-            var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(30, 0);
-
-            foreach (var result in page.Results)
-            {
-                var pokemon = await pokeApiClient.GetResourceAsync<Pokemon>(result.Name);
-
-                Items.Add(new CollectionListViewItem
-                {
-                    ImageUrl = pokemon.Sprites.FrontShiny
-                });
-            }
+            await Navigation.PushAsync(new CollectionViewGridPage());
         }
     }
 }

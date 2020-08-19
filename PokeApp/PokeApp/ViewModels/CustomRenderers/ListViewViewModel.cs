@@ -26,6 +26,8 @@ namespace PokeApp.ViewModels.CustomRenderers
 
         private async void ExecuteLoadData()
         {
+            Items.Clear();
+            
             var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(40, 0);
 
             foreach(var result in page.Results)

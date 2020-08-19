@@ -37,6 +37,8 @@
     <Folder Include="CustomControls\" />
     <Folder Include="Models\" />
     <Folder Include="ViewModels\CustomRenderers\" />
+    <Folder Include="Views\CollectionViews\" />
+    <Folder Include="ViewModels\CollectionViews\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">
