@@ -7,17 +7,6 @@
             xmlns:views="clr-namespace:PokeApp.Views"
             x:Class="PokeApp.Views.MainPage">
     <TabbedPage.Children>
-        <NavigationPage Title="Views">
-            <x:Arguments>
-                <views:ViewsPage/>
-            </x:Arguments>
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-        </NavigationPage>
-        
         <NavigationPage Title="Custom Renderers">
             <x:Arguments>
                 <views:CustomRenderersPage/>
@@ -29,9 +18,9 @@
             </NavigationPage.Icon>
         </NavigationPage>
 
-        <NavigationPage Title="Search Example">
+        <NavigationPage Title="Example">
             <x:Arguments>
-                <views:SearchExamplePage/>
+                <views:ExamplePage/>
             </x:Arguments>
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
