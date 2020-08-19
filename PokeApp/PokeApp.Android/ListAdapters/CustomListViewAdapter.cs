@@ -22,7 +22,6 @@ namespace PokeApp.Droid.ListAdapters
             this.listView = listView;
         }
 
-        //public override int Count => listView.Items?.Count() ?? 0;
         public override int Count => listView.ItemsSource.Cast<CustomListViewItem>().Count();
 
         public override Java.Lang.Object GetItem(int position)
