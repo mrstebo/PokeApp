@@ -1,6 +1,8 @@
 ﻿using Xamarin.Forms;
 using PokeApp.Views;
 using PokeApp.Services;
+using System.Threading;
+using System.Globalization;
 
 namespace PokeApp
 {
@@ -18,6 +20,9 @@ namespace PokeApp
             });
 
             DependencyService.RegisterSingleton<IPokemonApi>(new PokemonApi());
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB");
 
             MainPage = new MainPage();
         }
