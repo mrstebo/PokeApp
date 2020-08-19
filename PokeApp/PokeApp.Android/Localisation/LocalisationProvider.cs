@@ -24,6 +24,9 @@ namespace PokeApp.Droid.Localisation
             }
 
             return new CultureInfo(language);
+
+            // Uncomment to use culture set in the main App, rather than what is on the device
+            //return CultureInfo.CurrentCulture;
         }
 
         public void SetLocale()

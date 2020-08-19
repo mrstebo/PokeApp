@@ -36,6 +36,9 @@ namespace PokeApp.iOS.Localisation
             }
 
             return cultureInfo;
+
+            // Uncomment to use culture set in the main App, rather than what is on the device
+            //return CultureInfo.CurrentCulture;
         }
 
         public void SetLocale()
@@ -56,6 +59,12 @@ namespace PokeApp.iOS.Localisation
 
             Thread.CurrentThread.CurrentCulture = cultureInfo;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+            // Uncomment to use culture set in the main App, rather than what is on the device
+            //var culture = GetCurrentCultureInfo();
+
+            //Thread.CurrentThread.CurrentCulture = culture;
+            //Thread.CurrentThread.CurrentUICulture = culture;
         }
     }
 }
