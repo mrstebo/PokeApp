@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="14dip"
             android:textColor="#FF267F00"
-            android:paddingLeft="100dip" />
+            android:paddingLeft="10dip" />
     </LinearLayout>
     <ImageView
         android:id="@+id/custom_list_view_cell_image"

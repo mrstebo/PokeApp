@@ -9,11 +9,11 @@ using Xamarin.Forms;
 namespace PokeApp.ViewModels.CustomRenderers
 {
     [AddINotifyPropertyChangedInterface]
-    public class ListViewCustomRendererViewModel
+    public class ListViewViewModel
     {
         private PokeApiClient pokeApiClient;
 
-        public ListViewCustomRendererViewModel()
+        public ListViewViewModel()
         {
             pokeApiClient = new PokeApiClient();
 

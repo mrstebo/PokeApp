@@ -4,11 +4,11 @@ using Xamarin.Forms;
 
 namespace PokeApp.Views.CustomRenderers
 {
-    public partial class ListViewCustomRendererPage : ContentPage
+    public partial class ListViewDefaultPage : ContentPage
     {
         private readonly ListViewViewModel viewModel;
 
-        public ListViewCustomRendererPage()
+        public ListViewDefaultPage()
         {
             InitializeComponent();
 
