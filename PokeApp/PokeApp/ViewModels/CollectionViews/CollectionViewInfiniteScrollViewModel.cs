@@ -30,7 +30,7 @@ namespace PokeApp.ViewModels.CollectionViews
         public ObservableCollection<CollectionListViewItem> Items { get; }
         public bool IsBusy { get; set; }
         public bool IsRefreshing { get; set; }
-        public int RemainingItemsThreshold { get; set; } = 1;
+        public int RemainingItemsThreshold { get; set; } = 6;
         public ICommand LoadData { get; }
         public ICommand RefreshItems { get; }
         public ICommand RemainingItemsThresholdReached { get; }

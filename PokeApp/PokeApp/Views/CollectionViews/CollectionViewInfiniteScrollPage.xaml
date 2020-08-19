@@ -21,7 +21,7 @@
                     VerticalOptions="FillAndExpand"
                 >
                     <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Vertical" />
+                        <GridItemsLayout Orientation="Vertical" Span="3" />
                     </CollectionView.ItemsLayout>
                 </CollectionView>
             </RefreshView>
