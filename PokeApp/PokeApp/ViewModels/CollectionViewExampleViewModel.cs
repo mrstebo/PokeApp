@@ -9,11 +9,13 @@ namespace PokeApp.ViewModels
         public CollectionViewExampleViewModel()
         {
             GoToCollectionViewGridPage = new Command(ExecuteGoToCollectionViewGridPage);
+            GoToCollectionViewInfiniteScrollPage = new Command(ExecuteGoToCollectionViewInfiniteScrollPage);
             GoToCollectionViewLinearHorizontalPage = new Command(ExecuteGoToCollectionViewLinearHorizontalPage);
             GoToCollectionViewLinearVerticalPage = new Command(ExecuteGoToCollectionViewLinearVerticalPage);
         }
 
         public ICommand GoToCollectionViewGridPage { get; }
+        public ICommand GoToCollectionViewInfiniteScrollPage { get; }
         public ICommand GoToCollectionViewLinearHorizontalPage { get; }
         public ICommand GoToCollectionViewLinearVerticalPage { get; }
         public INavigation Navigation { get; set; }
@@ -21,6 +23,11 @@ namespace PokeApp.ViewModels
         private async void ExecuteGoToCollectionViewGridPage()
         {
             await Navigation.PushAsync(new CollectionViewGridPage());
+        }
+
+        private async void ExecuteGoToCollectionViewInfiniteScrollPage()
+        {
+            await Navigation.PushAsync(new CollectionViewInfiniteScrollPage());
         }
 
         private async void ExecuteGoToCollectionViewLinearHorizontalPage()

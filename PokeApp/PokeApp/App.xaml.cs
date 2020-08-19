@@ -12,6 +12,7 @@ namespace PokeApp
 
             Device.SetFlags(new[]
             {
+                "CollectionView_Experimental",
                 "Shapes_Experimental"
             });
 

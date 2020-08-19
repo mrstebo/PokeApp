@@ -12,6 +12,8 @@ namespace PokeApp.ViewModels.CollectionViews
     [AddINotifyPropertyChangedInterface]
     public class CollectionViewViewModel
     {
+        private const int ItemFetchLimit = 50;
+
         private PokeApiClient pokeApiClient;
 
         public CollectionViewViewModel()
@@ -33,7 +35,7 @@ namespace PokeApp.ViewModels.CollectionViews
                 IsBusy = true;
                 Items.Clear();
 
-                var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(50, 0);
+                var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(ItemFetchLimit, 0);
 
                 foreach (var result in page.Results)
                 {
