@@ -13,7 +13,13 @@
     <ContentPage.Content>
         <Grid>
              <RefreshView Command="{Binding RefreshItems}" IsRefreshing="{Binding IsRefreshing}">
-                <CollectionView ItemsSource="{Binding Items}" ItemTemplate="{StaticResource CollectionViewItemTemplate}" RemainingItemsThreshold="{Binding RemainingItemsThreshold}" RemainingItemsThresholdReachedCommand="{Binding RemainingItemThresholdReached}" VerticalOptions="FillAndExpand">
+                <CollectionView
+                    ItemsSource="{Binding Items}"
+                    ItemTemplate="{StaticResource CollectionViewItemTemplate}"
+                    RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
+                    RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReached}"
+                    VerticalOptions="FillAndExpand"
+                >
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" />
                     </CollectionView.ItemsLayout>

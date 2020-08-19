@@ -23,16 +23,16 @@ namespace PokeApp.ViewModels.CollectionViews
             Items = new ObservableCollection<CollectionListViewItem>();
             LoadData = new Command(ExecuteLoadData);
             RefreshItems = new Command(ExecuteRefreshItems);
-            RemainingItemThresholdReached = new Command(ExecuteRemainingItemThresholdReached);
+            RemainingItemsThresholdReached = new Command(ExecuteRemainingItemsThresholdReached);
         }
 
         public ObservableCollection<CollectionListViewItem> Items { get; }
         public bool IsBusy { get; set; }
         public bool IsRefreshing { get; set; }
-        public int RemainingItemThreshold { get; set; } = 10;
+        public int RemainingItemsThreshold { get; set; } = 1;
         public ICommand LoadData { get; }
         public ICommand RefreshItems { get; }
-        public ICommand RemainingItemThresholdReached { get; }
+        public ICommand RemainingItemsThresholdReached { get; }
 
         private async void ExecuteLoadData()
         {
@@ -72,8 +72,10 @@ namespace PokeApp.ViewModels.CollectionViews
             IsRefreshing = false;
         }
 
-        private async void ExecuteRemainingItemThresholdReached()
+        private async void ExecuteRemainingItemsThresholdReached()
         {
+            if (IsBusy) return;
+
             try
             {
                 IsBusy = true;

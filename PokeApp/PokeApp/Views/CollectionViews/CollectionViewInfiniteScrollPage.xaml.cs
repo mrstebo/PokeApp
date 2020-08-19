@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using PokeApp.ViewModels.CollectionViews;
 using Xamarin.Forms;
 
