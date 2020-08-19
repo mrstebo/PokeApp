@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
 using System.Globalization;
-using System.Threading;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace PokeApp.ViewModels
 {
@@ -10,15 +6,9 @@ namespace PokeApp.ViewModels
     {
         public LocalisationExampleViewModel()
         {
-            ChangeCurrentCulture = new Command<string>(ExecuteChangeCurrentCulture);
+            CurrentCulture = CultureInfo.CurrentCulture.DisplayName;
         }
 
-        public ICommand ChangeCurrentCulture { get; }
-
-        private void ExecuteChangeCurrentCulture(string culture)
-        {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
-        }
+        public string CurrentCulture { get; }
     }
 }
