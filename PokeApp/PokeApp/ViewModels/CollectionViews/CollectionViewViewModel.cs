@@ -13,7 +13,7 @@ namespace PokeApp.ViewModels.CollectionViews
     [AddINotifyPropertyChangedInterface]
     public class CollectionViewViewModel
     {
-        private const int ItemFetchLimit = 50;
+        private const int ItemFetchLimit = 151;
 
         private IPokemonApi pokemonApi;
 
