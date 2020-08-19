@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using PokeApiNet;
+using Dasync.Collections;
 using PokeApp.Models;
+using PokeApp.Services;
 using PropertyChanged;
 using Xamarin.Forms;
 
@@ -11,11 +11,11 @@ namespace PokeApp.ViewModels.CustomRenderers
     [AddINotifyPropertyChangedInterface]
     public class ListViewViewModel
     {
-        private PokeApiClient pokeApiClient;
+        private IPokemonApi pokemonApi;
 
         public ListViewViewModel()
         {
-            pokeApiClient = new PokeApiClient();
+            pokemonApi = DependencyService.Resolve<IPokemonApi>();
 
             LoadData = new Command(ExecuteLoadData);
             Items = new ObservableCollection<CustomListViewItem>();
@@ -27,20 +27,16 @@ namespace PokeApp.ViewModels.CustomRenderers
         private async void ExecuteLoadData()
         {
             Items.Clear();
-            
-            var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(40, 0);
 
-            foreach(var result in page.Results)
+            await pokemonApi.GetPokemonAsync(0, 151).ForEachAsync(pokemon =>
             {
-                var pokemon = await pokeApiClient.GetResourceAsync<Pokemon>(result.Name);
-
                 Items.Add(new CustomListViewItem
                 {
                     Id = pokemon.Id,
                     Name = pokemon.Name,
-                    ImageUrl = pokemon.Sprites.FrontDefault
+                    ImageUrl = pokemon.DefaultImageUrl
                 });
-            }
+            });
         }
     }
 }
