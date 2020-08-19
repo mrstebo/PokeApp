@@ -25,7 +25,6 @@
                     </CollectionView.ItemsLayout>
                 </CollectionView>
             </RefreshView>
-            <Grid IsVisible="{Binding IsBusy}" InputTransparent="True" BackgroundColor="Black" Opacity="0.3" />
              <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" InputTransparent="True">
                 <ActivityIndicator IsRunning="{Binding IsBusy}" HeightRequest="64" WidthRequest="64" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
             </Grid>
