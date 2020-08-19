@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Dasync.Collections;
-using PokeApiNet;
 using PokeApp.Models;
 using PokeApp.Services;
 using PropertyChanged;
