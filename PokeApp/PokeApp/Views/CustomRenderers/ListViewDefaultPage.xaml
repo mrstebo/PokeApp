@@ -28,6 +28,12 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Source="{Binding ImageUrl}" WidthRequest="64" HeightRequest="64" />
                     <StackLayout Grid.Column="1" Padding="10">
+                        <StackLayout.Orientation>
+                            <OnPlatform x:TypeArguments="StackOrientation">
+                                <On Platform="Android" Value="Horizontal" />
+                                <On Platform="UWP" Value="Vertical" />
+                            </OnPlatform>
+                        </StackLayout.Orientation>
                         <Label Style="{StaticResource NameStyle}" Text="{Binding Name}" />
                         <Label Style="{StaticResource IdStyle}" Text="{Binding Id, StringFormat='#{0}'}" />
                     </StackLayout>
