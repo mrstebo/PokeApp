@@ -2,8 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
-using PokeApiNet;
+using Dasync.Collections;
 using PokeApp.Models;
+using PokeApp.Services;
 using PropertyChanged;
 using Xamarin.Forms;
 
@@ -14,11 +15,11 @@ namespace PokeApp.ViewModels.CollectionViews
     {
         private const int ItemFetchLimit = 20;
 
-        private PokeApiClient pokeApiClient;
+        private IPokemonApi pokemonApi;
 
         public CollectionViewInfiniteScrollViewModel()
         {
-            pokeApiClient = new PokeApiClient();
+            pokemonApi = DependencyService.Resolve<IPokemonApi>();
 
             Items = new ObservableCollection<CollectionListViewItem>();
             LoadData = new Command(ExecuteLoadData);
@@ -41,17 +42,13 @@ namespace PokeApp.ViewModels.CollectionViews
                 IsBusy = true;
                 Items.Clear();
 
-                var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(ItemFetchLimit, 0);
-
-                foreach (var result in page.Results)
+                await pokemonApi.GetPokemonAsync(0, ItemFetchLimit).ForEachAsync(pokemon =>
                 {
-                    var pokemon = await pokeApiClient.GetResourceAsync<Pokemon>(result.Name);
-
                     Items.Add(new CollectionListViewItem
                     {
-                        ImageUrl = pokemon.Sprites.FrontShiny
+                        ImageUrl = pokemon.ShinyImageUrl
                     });
-                }
+                });
             }
             catch (Exception ex)
             {
@@ -80,17 +77,13 @@ namespace PokeApp.ViewModels.CollectionViews
             {
                 IsBusy = true;
 
-                var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(ItemFetchLimit, Items.Count);
-
-                foreach (var result in page.Results)
+                await pokemonApi.GetPokemonAsync(Items.Count, ItemFetchLimit).ForEachAsync(pokemon =>
                 {
-                    var pokemon = await pokeApiClient.GetResourceAsync<Pokemon>(result.Name);
-
                     Items.Add(new CollectionListViewItem
                     {
-                        ImageUrl = pokemon.Sprites.FrontShiny
+                        ImageUrl = pokemon.ShinyImageUrl
                     });
-                }
+                });
             }
             catch (Exception ex)
             {
