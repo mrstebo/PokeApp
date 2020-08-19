@@ -6,7 +6,8 @@
 >
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Grid" Command="{Binding GoToGridCollectionViewPage}" />
+            <Button Text="Linear (Vertical)" Command="{Binding GoToCollectionViewLinearVerticalPage}" />
+            <Button Text="Grid" Command="{Binding GoToCollectionViewGridPage}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

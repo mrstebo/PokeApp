@@ -8,15 +8,22 @@ namespace PokeApp.ViewModels
     {
         public CollectionViewExampleViewModel()
         {
-            GoToGridCollectionViewPage = new Command(ExecuteGoToGridCollectionViewPage);
+            GoToCollectionViewGridPage = new Command(ExecuteGoToCollectionViewGridPage);
+            GoToCollectionViewLinearVerticalPage = new Command(ExecuteGoToCollectionViewLinearVerticalPage);
         }
 
-        public ICommand GoToGridCollectionViewPage { get; }
+        public ICommand GoToCollectionViewGridPage { get; }
+        public ICommand GoToCollectionViewLinearVerticalPage { get; }
         public INavigation Navigation { get; set; }
 
-        private async void ExecuteGoToGridCollectionViewPage()
+        private async void ExecuteGoToCollectionViewGridPage()
         {
             await Navigation.PushAsync(new CollectionViewGridPage());
+        }
+
+        private async void ExecuteGoToCollectionViewLinearVerticalPage()
+        {
+            await Navigation.PushAsync(new CollectionViewLinearVerticalPage());
         }
     }
 }

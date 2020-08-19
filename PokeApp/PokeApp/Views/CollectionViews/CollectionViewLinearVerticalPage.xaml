@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PokeApp.Views.CollectionViews.CollectionViewLinearVerticalPage"
+    Appearing="ContentPage_Appearing"
+>
+    <ContentPage.Resources>
+        <DataTemplate x:Key="CollectionViewItemTemplate">
+            <Image HeightRequest="128" WidthRequest="128" Source="{Binding ImageUrl}" />
+        </DataTemplate>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <CollectionView ItemsSource="{Binding Items}" ItemTemplate="{StaticResource CollectionViewItemTemplate}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+            <Grid IsVisible="{Binding IsBusy}" InputTransparent="True" BackgroundColor="Black" Opacity="0.3" />
+             <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" InputTransparent="True">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" HeightRequest="64" WidthRequest="64" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
