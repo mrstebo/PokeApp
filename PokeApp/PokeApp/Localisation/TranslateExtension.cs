@@ -18,10 +18,7 @@ namespace PokeApp.Localisation
 
         public TranslateExtension()
         {
-            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
-            {
-                cultureInfo = DependencyService.Get<ILocalisationProvider>().GetCurrentCultureInfo();
-            }
+            cultureInfo = DependencyService.Get<ILocalisationProvider>().GetCurrentCultureInfo();
         }
 
         public string Text { get; set; }

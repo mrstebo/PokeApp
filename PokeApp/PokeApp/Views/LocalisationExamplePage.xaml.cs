@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using PokeApp.ViewModels;
 using Xamarin.Forms;
 
 namespace PokeApp.Views
@@ -10,6 +8,8 @@ namespace PokeApp.Views
         public LocalisationExamplePage()
         {
             InitializeComponent();
+
+            BindingContext = new LocalisationExampleViewModel();
         }
     }
 }
