@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using PokeApp.Views;
+using PokeApp.Services;
 
 namespace PokeApp
 {
@@ -15,6 +16,8 @@ namespace PokeApp
                 "CollectionView_Experimental",
                 "Shapes_Experimental"
             });
+
+            DependencyService.RegisterSingleton<IPokemonApi>(new PokemonApi());
 
             MainPage = new MainPage();
         }
