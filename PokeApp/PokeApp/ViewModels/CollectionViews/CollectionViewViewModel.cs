@@ -2,8 +2,10 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
+using Dasync.Collections;
 using PokeApiNet;
 using PokeApp.Models;
+using PokeApp.Services;
 using PropertyChanged;
 using Xamarin.Forms;
 
@@ -14,11 +16,11 @@ namespace PokeApp.ViewModels.CollectionViews
     {
         private const int ItemFetchLimit = 50;
 
-        private PokeApiClient pokeApiClient;
+        private IPokemonApi pokemonApi;
 
         public CollectionViewViewModel()
         {
-            pokeApiClient = new PokeApiClient();
+            pokemonApi = DependencyService.Resolve<IPokemonApi>();
 
             LoadData = new Command(ExecuteLoadData);
             Items = new ObservableCollection<CollectionListViewItem>();
@@ -35,17 +37,13 @@ namespace PokeApp.ViewModels.CollectionViews
                 IsBusy = true;
                 Items.Clear();
 
-                var page = await pokeApiClient.GetNamedResourcePageAsync<Pokemon>(ItemFetchLimit, 0);
-
-                foreach (var result in page.Results)
+                await pokemonApi.GetPokemonAsync(0, ItemFetchLimit).ForEachAsync(pokemon =>
                 {
-                    var pokemon = await pokeApiClient.GetResourceAsync<Pokemon>(result.Name);
-
                     Items.Add(new CollectionListViewItem
                     {
-                        ImageUrl = pokemon.Sprites.FrontShiny
+                        ImageUrl = pokemon.DefaultImageUrl,
                     });
-                }
+                });
             }
             catch(Exception ex)
             {
