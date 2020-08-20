@@ -30,11 +30,14 @@ namespace PokeApp.ViewModels.CustomRenderers
 
             await pokemonApi.GetPokemonAsync(0, 151).ForEachAsync(pokemon =>
             {
-                Items.Add(new CustomListViewItem
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    Id = pokemon.Id,
-                    Name = pokemon.Name,
-                    ImageUrl = pokemon.DefaultImageUrl
+                    Items.Add(new CustomListViewItem
+                    {
+                        Id = pokemon.Id,
+                        Name = pokemon.Name,
+                        ImageUrl = pokemon.DefaultImageUrl
+                    });
                 });
             });
         }

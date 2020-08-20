@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using Android.Content;
 using PokeApp.CustomControls;
 using PokeApp.Droid.CustomRenderers;

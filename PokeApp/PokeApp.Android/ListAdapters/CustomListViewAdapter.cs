@@ -1,7 +1,5 @@
 ﻿using System.Linq;
-using System.Net;
 using Android.App;
-using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Views;
 using Android.Widget;
@@ -22,7 +20,7 @@ namespace PokeApp.Droid.ListAdapters
             this.listView = listView;
         }
 
-        public override int Count => listView.ItemsSource.Cast<CustomListViewItem>().Count();
+        public override int Count => listView?.ItemsSource.Cast<CustomListViewItem>().Count() ?? 0;
 
         public override Java.Lang.Object GetItem(int position)
         {
