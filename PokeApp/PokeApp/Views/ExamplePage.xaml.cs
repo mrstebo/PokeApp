@@ -26,6 +26,8 @@ namespace PokeApp.Views
                 { 0.5, 1,  new Animation(v => MyLabel.Scale = v, 1.5, 1) },
             };
 
+            //animation.Add(0.5, 1, new Animation(v => MyLabel.RotationX = v, 0, 360, Easing.SpringOut));
+
             animation.Commit(this, "LabelAnimation", 16, 4000, Easing.SinInOut, null, () => true);
         }
     }
