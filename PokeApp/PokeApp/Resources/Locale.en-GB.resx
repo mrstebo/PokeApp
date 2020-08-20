@@ -15,4 +15,7 @@
     <data name="ColourLabel" xml:space="preserve">
         <value>Colour</value>
     </data>
+    <data name="CentreLabel" xml:space="preserve">
+        <value>Centre</value>
+    </data>
 </root>

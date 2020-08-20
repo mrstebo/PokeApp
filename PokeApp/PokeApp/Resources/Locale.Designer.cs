@@ -52,5 +52,11 @@ namespace PokeApp.Resources {
                 return ResourceManager.GetString("ColourLabel", resourceCulture);
             }
         }
+        
+        internal static string CentreLabel {
+            get {
+                return ResourceManager.GetString("CentreLabel", resourceCulture);
+            }
+        }
     }
 }
