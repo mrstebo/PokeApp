@@ -1,4 +1,5 @@
-﻿using PokeApp.ViewModels;
+﻿using System;
+using PokeApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,17 @@ namespace PokeApp.Views
             {
                 Title = "Example Page",
             };
+        }
+
+        void ContentPage_Appearing(object sender, EventArgs e)
+        {
+            var animation = new Animation
+            {
+                { 0, 0.5,  new Animation(v => MyLabel.Scale = v, 1, 1.5) },
+                { 0.5, 1,  new Animation(v => MyLabel.Scale = v, 1.5, 1) },
+            };
+
+            animation.Commit(this, "LabelAnimation", 16, 4000, Easing.SinInOut, null, () => true);
         }
     }
 }

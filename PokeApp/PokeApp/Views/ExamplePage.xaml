@@ -5,10 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="PokeApp.Views.ExamplePage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Appearing="ContentPage_Appearing">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="This page has been intentionally left blank"
+            <Label x:Name="MyLabel" Text="This page has been intentionally left blank"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
